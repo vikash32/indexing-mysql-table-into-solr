@@ -108,4 +108,4 @@ http://localhost:8983/solr/employees/select?q=*&wt=json&qf=first_name%20last_nam
 
 That's All
 
-For any issues please free to mail me at sincerevikash@gmail.com i would be glad to help.
+For any confusion on above understanding, please feel free to mail me at sincerevikash@gmail.com i would be glad to help.
