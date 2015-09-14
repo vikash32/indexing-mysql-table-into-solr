@@ -7,7 +7,12 @@ To index mysql table into solr we require these technology.
 <li> 2.) MySql Database</li>
 <li> 3.)<a href = "http://cdn.mysql.com/archives/mysql-connector-java-5.1/mysql-connector-java-5.1.32.tar.gz">Mysql connector </a></li>
 
-Let's Begin the party with MySql. First we will create database named test and inside this DB a table EMPLOYEE and in this table we will put first_name, last_name, age, sex, income all are in varchar for now.
+Let's Begin the party with MySql.
+Install mysql, mysql-server first, using yum or whichever your favourite method.
+```
+yum install mysql mysql-server
+```
+Now, First we will create database named test and inside this DB a table EMPLOYEE and in this table we will put first_name, last_name, age, sex, income all are in varchar for now.
 ```
 su - #swith to root user
 mysqladmin -u root -p create test #provide your root passwd when it requires.
@@ -26,13 +31,19 @@ mysql> exit;
 ```
 Now we are done with Mysql, Let's move ahead to the solr.
 
+Download Solr from apache [SOLR5.0.0](http://archive.apache.org/dist/lucene/solr/5.0.0/solr-5.0.0.zip)
+Extracts solr5.0.0.zip folder into Downloads directory 
+```
+unzip solr-5.0.0.zip
+```
 After having solr5.0.0 and mysql connector download and extract and MySql installed. , follow mwntioned steps.
-```
-Place mysql connector jar file into "Downloads/solr-5.0.0/contrib/dataimporthandler/lib" create subdirectory "lib" if it is not present.
-```
+
+Place [mysql-connector-jar](http://cdn.mysql.com/archives/mysql-connector-java-5.1/mysql-connector-java-5.1.32.tar.gz) file into "Downloads/solr-5.0.0/contrib/dataimporthandler/lib". 
+Create subdirectory "lib" if it is not present.
+
 Now start solr.
 ```
-cd $HOME/Downloads/solr5.0.0/ ; bin/solr start  # By default solr will start on 8983 port, http://localhost:8983/solr
+cd $HOME/Downloads/solr5.0.0/ ; bin/solr start     # By default solr will start on 8983 port, http://localhost:8983/solr
 ```
 create Core
 ```
