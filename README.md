@@ -28,7 +28,7 @@ Now we are done with Mysql, Let's move ahead to the solr.
 
 After having solr5.0.0 and mysql connector download and extract and MySql installed. , follow mwntioned steps.
 ```
-Place mysql connector jar file into <i>"Downloads/solr-5.0.0/contrib/dataimporthandler/lib"</i> create subdirectory "lib" if it is not present.
+Place mysql connector jar file into "Downloads/solr-5.0.0/contrib/dataimporthandler/lib" create subdirectory "lib" if it is not present.
 ```
 Now start solr.
 ```
@@ -38,12 +38,11 @@ create Core
 ```
 bin/solr create_core -c employees -d basic_configs
 ```
-Now open "solrconfig.xml" file, and add following line within config tag. here one thing to notice that in lib tag of below code the dir i nothing but the path of lib directory of jar file, i have used root so it is showing me the root/Downloads/solr5.0.0/contrib/dataimporthandler/lib, in your case it maye be different path.
-
+Now open "solrconfig.xml" file, 
 ```
 vi $HOME/Downloads/solr5.0.0/server/solr/employees/conf/solrconfig.xml
 ```
-
+And add following line within config tag. here one thing to notice that in lib tag of below code the dir i nothing but the path of lib directory of jar file, i have used root so it is showing me the root/Downloads/solr5.0.0/contrib/dataimporthandler/lib, in your case it maye be different path.
 ``` 
 <lib dir="/root/Downloads/solr-5.0.0/contrib/dataimporthandler/lib/" regex=".*\.jar" />
 <lib dir="/root/Downloads/solr-5.0.0/dist/" regex="solr-dataimporthandler-\d.*\.jar" /> 
@@ -53,12 +52,11 @@ vi $HOME/Downloads/solr5.0.0/server/solr/employees/conf/solrconfig.xml
       </lst> 
     </requestHandler>
 ```
-Now open schema.xml in the same directory i.e $HOME/Downloads/solr5.0.0/server/solr/employeed/schema.xml and add following lines.
+Now open schema.xml in the same directory i.e $HOME/Downloads/solr5.0.0/server/solr/employeed/schema.xml 
 ```
-$HOME/Downloads/solr5.0.0/server/solr/employeed/schema.xml
+vi $HOME/Downloads/solr5.0.0/server/solr/employeed/schema.xml
 ```
-here i am telling solr what to index from table of mysql.
-
+And add following lines.here i am telling solr what to index from table of mysql.
 ```
 <dynamicField name="*_name" type="text_general" multiValued="false" indexed="true" stored="true" />
    <dynamicField name="*age" type="int" multiValued="false" indexed="true" stored="true" />
@@ -69,13 +67,12 @@ now create db-data-config.xml file.
 ```
 vi db-data-config.xml
 ```
-
-now put your mysql db related info here, and from this file solr knows what to show on the search.
+And now put your mysql db related info here, and from this file solr knows what to show on the search.
 ```
 <dataConfig>
 <dataSource type="JdbcDataSource"
 driver="com.mysql.jdbc.Driver"
-url="jdbc:mysql://localhost:3306/test"
+url="jdbc:mysql://localhost:3306/test"   # Connecting Database test
 user="root"
 password="secret" />
 <document>
@@ -97,4 +94,7 @@ Now you can see the results as a numdoc count.also you can query on solr.
 ```
 http://localhost:8983/solr/employees/select?q=*&wt=json&qf=first_name%20last_name&defType=edismax&indent=true
 ```
+
+That's All
+
 For any issues please free to mail me at sincerevikash@gmail.com i would be glad to help.
