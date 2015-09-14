@@ -3,9 +3,9 @@ indexing mysql table into solr
 
 Here we will go through step by step process.
 To index mysql table into solr we require these technology.
-<li> 1.) Solr5.0.0 </li>
-<li> 2.) MySql Database</li>
-<li> 3.)<a href = "http://cdn.mysql.com/archives/mysql-connector-java-5.1/mysql-connector-java-5.1.32.tar.gz">Mysql connector </a></li>
+* [Solr5.0.0](http://archive.apache.org/dist/lucene/solr/5.0.0/solr-5.0.0.zip)
+* MySql Database
+* [Mysql connector](http://cdn.mysql.com/archives/mysql-connector-java-5.1/mysql-connector-java-5.1.32.tar.gz)
 
 Let's Begin the party with MySql.
 Install mysql, mysql-server first, using yum or whichever your favourite method.
